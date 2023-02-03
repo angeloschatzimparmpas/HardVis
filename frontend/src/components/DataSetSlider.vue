@@ -2,9 +2,9 @@
 <div>
   <label id="data" for="param-dataset" data-toggle="tooltip" data-placement="right" title="Tip: use one of the data sets already provided or upload a new file.">{{ dataset }}</label>
   <select id="selectFile" @change="selectDataSet()">
-      <option value="VehicleC.csv" >Vehicle Silhouette</option>
+      <option value="VehicleC.csv" selected>Vehicle Silhouette</option>
       <option value="breastC.csv" >Breast Cancer</option>
-      <option value="IrisC.csv" selected>Iris Flower</option>
+      <option value="IrisC.csv" >Iris Flower</option>
   </select>
   <button style="float: right;" class="btn-outline-dark"
   id="know"

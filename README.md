@@ -60,5 +60,25 @@ FLASK_APP=run.py flask run
 
 Then, open your browser and point it to `localhost:8080`. We recommend using an up-to-date version of Google Chrome.
 
+# Reproducibility of the Results #
+The following instructions describe how to reach the results present in Figure 1 of the article. The aforementioned figure is connected with Section 5.2 (*Use case: explorative sampling for better classification*), and it is the main use case described in the paper.
+
+**Note:** We used OSX and Google Chrome in all our tests, so we cannot guarantee that it works in other OS or browser. However, since HardVis is written in JS and Python, it should work in all the most common platforms.
+
+**Tip:** You will have to see a red loading bar on the very top of your browser whenever something is processing.
+
+**Tip:** Our [demonstration video](https://vimeo.com/772796696) also presents the following steps, using the same data set (from 02:04 until 08:00).
+
+- Step 1: Make sure the "Vehicle Silhouette" data set is selected (top-left corner), then reload/refresh the `localhost:8080` page open in your browser. **Please note** that the first time you execute the analysis and, consequently, run the hyperparameter search, it might take a few minutes before the XGBoost classifier's hyperparameters have been tuned, using Bayesian Optimization. After the first time, the results are cached and will be re-used to make the process faster.
+- Step 2: When *Data Space* is populated with the data points, click on the stacked bar chart with value *13* for the *Number of Neighbors*, as is shown in Figure 6(a).
+- Step 3: We continue by selecting *Undersampling (US)* from the *Data Sets and Sampling Techniques* panel, and then click on the *OSS* option to activate this undersampling algorithm.
+- Step 4: After the loading process is over, we set the *Seeds* value to *250* (see Figure 6(c)). Afterward, we choose value *125* for this same parameter (cf. Figure 6(d)).
+- Step 5: At this point, we click on *Rare* from the *Types* parameter to deactivate the algorithm's application to these types of instances. In Figure 6(f), we can observe the result of this action. After everything gets reloaded, we click on *Outlier* type to deactivate this particular type, too (visible due to the removal of the *tick* symbol).
+- Step 6: Next, we select all data points in *Data Space* view by holding down the left click button and moving the mouse to surround all data points. This process is performed with the help of the lasso functionality implemented in HardVis, with dashed lines appearing in the *Data Space* view. After waiting a while until the dashed lines disappear, we press the *Execute Undersample* button in this same view.
+- Step 7: Afterward, we try out another undersampling phase. Thus, we click on the *OSS* button again to repeat the process one more time. Since the results are becoming worse, we completely deactivate this undersampling algorithm by clicking on the *Disabled* option. Please wait until the red loading bar on the very top is no longer visible.
+- Step 8: To receive the image shown in Figure 1, we have to switch to the *Oversampling (OS)* and click on the *SMOTE* option to activate this oversampling algorithm, as illustrated in Figure 1(a). Please wait until everything loads. Finally, we deactivate the *Outlier* option from the *Types* parameter.
+
+**Outcome:** The above process describes how you will be able to reproduce precisely the results presented in Figure 1 of the paper. Thank you for your time!
+
 # Corresponding Author #
 For any questions with regard to the implementation or the paper, feel free to contact [Angelos Chatzimparmpas](mailto:angelos.chatzimparmpas@lnu.se).
